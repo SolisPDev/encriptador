@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <img class="header_logo" src="./assets/Logo.png" alt="Logotipo Alura">
+    </header>
+    <main class="principal">
+        <section class="principal_contenido">
+            <textarea class="principal_entrada_texto" name="datos" id="textoEntrada" placeholder="Ingrese el texto aquí"></textarea>
+            <p class="principal_msg_error" id="msgError">
+                <i class="fa-solid fa-face-frown"></i>
+                 El texto contiene valores incorrectos.
+            </p>
+            <p class="principal_instruccion">
+                <i class="fa-solid fa-circle-exclamation"></i> Solo letras minúsculas y sin acentos.
+            </p>
+            <div class="principal_grupo_botones">
+                <button class="principal_boton _encriptar" onclick="encriptar();" id="encriptar">Encriptar</button>
+                <button class="principal_boton _desencriptar" onclick="desencriptar();" id="desencriptar">Desencriptar</button>
+            </div>
+        </section>
+        <div class="principal_resultado">
+            <img class="principal_imagen" id="resultadoImagen" src="./assets/Muñeco.png" alt="Joven buscando texto">
+            <textarea class="principal_resultado_texto" name="textoResultado" id="textoResultado"></textarea>
+            <p class="principal_mensajes_bold" id="resultadoTextoMsg">Ningún mensaje fue encontrado</p>
+            <p class="principal_mensajes_normal">Ingrese el texto que desea encriptar o desencriptar</p>
+            <button class="principal_boton _copiar" onclick="copiar();" id="resultadoCopiar">Copiar</button>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>Desarrollado por Antonio Solis Perales</p>
+        <p>Esta pagina es amigable con el medio ambiente</p>
+    </footer>
+    <script src="./js/scripts.js"></script>
+</body>
+</html>
