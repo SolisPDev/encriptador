@@ -55,6 +55,7 @@ function encriptar(){
         visualizarElemento('resultadoImagen', 'none');
         visualizarElemento('textoResultado', 'block');
         visualizarElemento('resultadoCopiar', 'block');
+        
     }
 }
 
