@@ -1,6 +1,7 @@
 ///////  Definicion de Variables  /////////
-let numeroSecreto = 0;
-let intentos = 0;
+let texto = "";
+let textoCodificado = "";
+let textoCopiado = "";
 
 //////////////////////////////////////
 ////// Definicion de funciones  //////
@@ -35,10 +36,21 @@ function evaluaCadena(cadena) {
     return true;
 }
 
+function asignarTextoPorId(elemento, texto) {
+    let elementoHTML = document.getElementById(elemento);
+    elementoHTML.innerHTML = texto;
+    return;
+}
+
+function limpiarTextarea(elemento) {
+    document.getElementById(elemento).value = '';
+}
+
 /////////////////////////////////////////
 ////// Funcionalidad de los botones /////
 /////////////////////////////////////////
 function encriptar(){
+    let textoCodificado = "";
     let texto = document.getElementById('textoEntrada').value;
     visualizarElemento('msgError', 'none');
     if(evaluaCadena(texto) == false){
@@ -55,7 +67,46 @@ function encriptar(){
         visualizarElemento('resultadoImagen', 'none');
         visualizarElemento('textoResultado', 'block');
         visualizarElemento('resultadoCopiar', 'block');
-        
+
+        /*** ***reglas para encriptar ****/
+        // La letra "a" es convertida para "ai"
+        // La letra "e" es convertida para "enter"
+        // La letra "i" es convertida para "imes"
+        // La letra "o" es convertida para "ober"
+        // La letra "u" es convertida para "ufat"
+
+        for (let letra of texto) {
+            console.log(letra);
+
+            switch (letra.toLowerCase()) {
+                case 'a':
+                    console.log("Vocal 'a' encontrada");
+                    textoCodificado = textoCodificado + "ai";
+                    break;
+                case 'e':
+                    console.log("Vocal 'e' encontrada");
+                    textoCodificado = textoCodificado + "enter";
+                    break;
+                case 'i':
+                    console.log("Vocal 'i' encontrada");
+                    textoCodificado = textoCodificado + "imes";
+                    break;
+                case 'o':
+                    console.log("Vocal 'o' encontrada");
+                    textoCodificado = textoCodificado + "ober";
+                    break;
+                case 'u':
+                    console.log("Vocal 'u' encontrada");
+                    textoCodificado = textoCodificado + "ufat";
+                    break;
+                default:
+                    textoCodificado = textoCodificado + letra.toLowerCase();
+                    break;
+            }
+        }
+
+        console.log(textoCodificado);
+        asignarTextoPorId('textoResultado',`${textoCodificado}`);
     }
 }
 
@@ -64,9 +115,26 @@ function desencriptar(){
 }
 
 function copiar(){
-    alert("copiar");
+    textoCopiado = document.getElementById('textoResultado').value;
+    
+    textoCodificado = "";
+    texto = "";
+    limpiarTextarea('textoResultado');
+    limpiarTextarea('textoEntrada');
+
+    visualizarElemento('resultadoTextoMsg', 'block');
+    visualizarElemento('resultadoImagen', 'block');
+    visualizarElemento('textoResultado', 'none');
+    visualizarElemento('resultadoCopiar', 'none');
+
+
+
+
+    
 }
 
 //////// INICIO /////////
+
+
 
 iniciaControles();
