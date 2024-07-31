@@ -21,20 +21,20 @@ function visualizarElemento(idElemento, valor) {
     }
 }
 
-function evaluaCadena(cadena) {
-    // Recorremos cada caracter de la cadena
-    for (let i = 0; i < cadena.length; i++) {
-        // Obtenemos el código ASCII del caracter actual
-        let codigo = cadena.charCodeAt(i);
-        // Verificamos si el código ASCII está en el rango de los números (48-57)
-        if (codigo >= 48 && codigo <= 57) {
-            // Si encontramos un número, retornamos false
-            return false;
-        }
+function replaceWithVowel(inputString, targetString, vocal) {
+    if (!/[aeiouAEIOU]/.test(vocal)) {
+      throw new Error("El reemplazo debe ser una vocal.");
     }
-    // Si no se encuentran números, retornamos true
-    return true;
-}
+  
+    return inputString.split(targetString).join(vocal);
+  }
+   
+
+function evaluaCadena(cadena) {
+    // Expresion regular que solo permite letras minúsculas y espacios
+    const regex = /^[a-z\s]+$/; 
+    return regex.test(cadena);
+  }
 
 function asignarTextoPorId(elemento, texto) {
     let elementoHTML = document.getElementById(elemento);
@@ -46,6 +46,19 @@ function limpiarTextarea(elemento) {
     document.getElementById(elemento).value = '';
 }
 
+function copiarTexto() {
+    let texto = document.getElementById('textoResultado').innerHTML;
+
+    navigator.clipboard.writeText(texto)
+    .then(() => {
+        console.log('Contenido copiado al portapapeles');
+        /* Resuelto - texto copiado al portapapeles con éxito */
+    },() => {
+        console.error('Error al copiar');
+        /* Rechazado - fallo al copiar el texto al portapapeles */
+    });
+}
+
 /////////////////////////////////////////
 ////// Funcionalidad de los botones /////
 /////////////////////////////////////////
@@ -54,11 +67,7 @@ function encriptar(){
     let texto = document.getElementById('textoEntrada').value;
     visualizarElemento('msgError', 'none');
     if(evaluaCadena(texto) == false){
-        /* El TEXTO contiene numeros o caracteres especiales
-           no cumple el requisito.
-           operacion a realizar : "ENVIAR MENSAJE AL USUARIO
-           PARA QUE VERIFIQUE EL CONTENIDO DEL TEXTO"
-        */
+        /* El TEXTO contiene numeros o caracteres especiales no cumple el requisito.*/
         console.log('La cadena tiene numeros');
         visualizarElemento('msgError', 'block');
     } else {
@@ -111,30 +120,35 @@ function encriptar(){
 }
 
 function desencriptar(){
-    alert("desencriptar");
+    // inicia proceso de desencriptar
+    let texto = document.getElementById('textoEntrada').value;
+    let textoDesencriptado = replaceWithVowel(texto, "ai", "a");
+    textoDesencriptado = replaceWithVowel(textoDesencriptado, "enter", "e");
+    textoDesencriptado = replaceWithVowel(textoDesencriptado, "imes", "i");
+    textoDesencriptado = replaceWithVowel(textoDesencriptado, "ober", "o");
+    textoDesencriptado = replaceWithVowel(textoDesencriptado, "ufat", "u");
+    // Salida: resultadoPrueba es la cadenas desencriptada
+    console.log(textoDesencriptado);
+    // Muestrando los resultados en pantalla
+    visualizarElemento('resultadoTextoMsg', 'none');
+    visualizarElemento('resultadoImagen', 'none');
+    visualizarElemento('textoResultado', 'block');
+    visualizarElemento('resultadoCopiar', 'block');
+    asignarTextoPorId('textoResultado',`${textoDesencriptado}`);
 }
 
 function copiar(){
-    textoCopiado = document.getElementById('textoResultado').value;
-    
-    textoCodificado = "";
-    texto = "";
-    limpiarTextarea('textoResultado');
+    // llama la funcion que copia el texto al portapapeles
+    copiarTexto();
+    //reorganiza la pantalla para iniciar nuevo proceso
     limpiarTextarea('textoEntrada');
-
     visualizarElemento('resultadoTextoMsg', 'block');
     visualizarElemento('resultadoImagen', 'block');
     visualizarElemento('textoResultado', 'none');
     visualizarElemento('resultadoCopiar', 'none');
-
-
-
-
-    
+   
 }
 
 //////// INICIO /////////
-
-
 
 iniciaControles();

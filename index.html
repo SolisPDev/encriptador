@@ -1,43 +1,115 @@
 <!DOCTYPE html>
 <html lang="es-mx">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Encriptador</title>
-    <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-    <header>
-        <img class="header_logo" src="./assets/Logo.png" alt="Logotipo Alura">
-    </header>
-    <main class="principal">
-        <section class="principal_contenido">
-            <textarea class="principal_entrada_texto" name="textoEntrada" id="textoEntrada" placeholder="Ingrese el texto aquí"></textarea>
+    <link rel="stylesheet" href="./styles/styles3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <img class="header_logo" src="./assets/Logo.png" alt="Logotipo Alura" />
+    <div class="box-process">
+      <!-- inicia seccion de entrada de datos -->
+      <div class="box-inputs">
+        <div class="box-data">
+          <textarea
+            class="box_process_inputs_data"
+            rows="5"
+            cols="50"
+            name="textoEntrada"
+            id="textoEntrada"
+            placeholder="Ingrese el texto aquí"
+          ></textarea>
+        </div>
+        <div class="box-msg-btns">
+          <div class="box-msg">
             <p class="principal_msg_error" id="msgError">
-                <i class="fa-solid fa-face-frown"></i>
-                 El texto contiene valores incorrectos.
+              <i class="fa-solid fa-face-frown"></i>
+              El texto contiene valores incorrectos.
             </p>
             <p class="principal_instruccion">
-                <i class="fa-solid fa-circle-exclamation"></i> Solo letras minúsculas y sin acentos.
+              <i class="fa-solid fa-circle-exclamation"></i> Solo letras
+              minúsculas y sin acentos.
             </p>
-            <div class="principal_grupo_botones">
-                <button class="principal_boton _encriptar" onclick="encriptar();" id="encriptar">Encriptar</button>
-                <button class="principal_boton _desencriptar" onclick="desencriptar();" id="desencriptar">Desencriptar</button>
-            </div>
-        </section>
-        <div class="principal_resultado">
-            <img class="principal_imagen" id="resultadoImagen" src="./assets/Muñeco.png" alt="Joven buscando texto">
-            <textarea class="principal_resultado_texto" name="textoResultado" id="textoResultado"></textarea>
-            <p class="principal_mensajes_bold" id="resultadoTextoMsg">Ningún mensaje fue encontrado</p>
-            <p class="principal_mensajes_normal">Ingrese el texto que desea encriptar o desencriptar</p>
-            <button class="principal_boton _copiar" onclick="copiar();" id="resultadoCopiar">Copiar</button>
+          </div>
+
+          <div class="box_button_group">
+            <button
+              class="btn btn_encriptar"
+              onclick="encriptar();"
+              id="encriptar"
+            >
+              <i class="fa-solid fa-file-signature"></i> Encriptar
+            </button>
+            <button
+              class="btn btn_desencriptar"
+              onclick="desencriptar();"
+              id="desencriptar"
+            >
+              <i class="fa-solid fa-file-code"></i> Desencriptar
+            </button>
+          </div>
         </div>
-    </main>
+      </div>
+      <!-- termina seccion de entrada de datos -->
+      <!-- inicia seccion de resultados -->
+      <div class="box-output">
+        <div class="box_output_img_result">
+          <img
+            class="principal_imagen"
+            id="resultadoImagen"
+            src="./assets/Muñeco.png"
+            alt="Joven buscando texto"
+          />
+          <textarea
+            class="principal_resultado_texto"
+            rows="5"
+            cols="50"
+            name="textoResultado"
+            id="textoResultado"
+          ></textarea>
+        </div>
+        <div class="box-msg-btn">
+          <p class="principal_mensajes_bold" id="resultadoTextoMsg">
+            Ningún mensaje fue encontrado
+          </p>
+          <p class="principal_mensajes_normal">
+            Ingrese el texto que desea encriptar o desencriptar
+          </p>
+          <button
+          class="btn btn_copiar"
+          onclick="copiar();"
+          id="resultadoCopiar">
+          <i class="fa-solid fa-copy"></i> Copiar
+        </button>
+        </div>
+      </div>
+      <!-- termina seccion de resultados -->
+      <div class="social-icons">
+        <ul>
+           <li><a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a></li>
+           <li><a href="mailto:solispantonio@horizondevs.net"><i class="fa-regular fa-envelope"></i></a></li>
+           <li><a href="#"><i class="fa-brands fa-discord"></i></a></li>
+           <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+        </ul>
+    </div>
+    </div>
     <footer class="footer">
-        <p>Desarrollado por Antonio Solis Perales</p>
-        <p>Esta pagina es amigable con el medio ambiente</p>
+      <p>&copy; 2024 Antonio Solís Perales.</p>
+      <p class="footer_text">
+        <a href="mailto:solispantonio@horizondevs.net">Contacto</a> |
+        <a href="https://www.linkedin.com/"
+          ><i class="fa-brands fa-linkedin"></i> linkedin</a
+        >
+      </p>
     </footer>
     <script src="./js/scripts.js"></script>
-</body>
+  </body>
 </html>

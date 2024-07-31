@@ -1,178 +1,199 @@
 /*****************************************************/
 /* Estilos para el Proyecto Encriptador              */
 /* Por: Antonio Solis Perales                        */
-/* solispantonio@horizondevs.net                     */ 
+/* solispantonio@horizondevs.net                     */
 /*****************************************************/
 /* Importación de fuentes  */
-@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Jura:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Jura:wght@300..700&display=swap");
 /* Variables Iniciales */
 /***********************/
-:root{
-/* Fonts types         */
-    --fuente-jura: 'Jura', sans-serif;
-    --fuente-cutive: 'Cutive Mono', monospace;
+:root {
+  /* Fonts types         */
+  --fuente-jura: "Jura", sans-serif;
+  --fuente-cutive: "Cutive Mono", monospace;
 
-/* Colores del sitio   */
-    --color-fondo: #121212;
-    --color-fondo-secundario: #1E3A8A;
-    --color-fondo-tercero: #8B0000;
-    --color-texto-normal: #ffffff;
-    --color-texto-resaltado: #424242;
-    --color-fondo-footer: #065F46;
-    --color-texto-error: #9a0000;
+  /* Colores del sitio   */
+  --color-fondo: #ffffff;
+  --color-texto-normal: #a9a9a9;
+  --color-texto-resaltado: #000080;
+  --color-fondo-footer: #000080;
+  --color-texto-error: #9a0000;
+  --color-btn-principal: #808000;
+  --color-btn-secundario: #FFD700;
 
-/*    --color-fondo: #DC6B19;
-    --color-fondo-secundario: #F7C566;
-    --color-texto-normal: #FFF8DC;
-    --color-texto-resaltado: #6C0345;
-    --color-fondo-footer: #059212;
-*/
 }
 
 /*  Parametros de reseteo  */
 /***************************/
 * {
-    padding: 0;
-    margin:0;
+  padding: 0;
+  margin: 0;
 }
 
-.header{
-    padding: 0% 0% 0% 0%;
-
+ul{
+  list-style: none;
 }
 
-.header_logo{
-    padding: 4% 0% 0% 4%;
+textarea {
+  width: 400px; /* Fija el ancho a 300 píxeles */
+  height: 120px; /* Fija el alto a 150 píxeles */
+  resize: none;
 }
 
-body{
-    padding: 5% 5% 5% 5%;
-    box-sizing: border-box;
-    background-color: var(--color-fondo);
-    color: var(--color-texto-normal);
+.header_logo {
+  padding: 40px 0 0 40px;
 }
 
-.principal{
-    padding: 5% 5% 5% 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 82px;
+/* Contenedor principal */
+.box-process {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
-.principal_contenido{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.box-inputs {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  border-radius: 4px;
+  background-color: var(--color-fondo);
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  transition: 3s;
+  box-shadow: 1px 0 5px 0 rgba(0, 0, 0, 0.6);
+  justify-content: space-between;
 }
 
-.principal_entrada_texto{
-    font-size: 1.5rem;
-    font-family: var(--fuente-jura);
-    padding: 2% 2% 2% 2%;
-    
-    background: var(--color-fondo);
-    color: var(--color-texto-normal);
+.box-msg{
+  font-family: var(--fuente-jura);
 }
 
-.principal_msg_error{
-    font-size: 1.5rem;
-    font-family: var(--fuente-cutive);
-    color: var(--color-texto-normal);
-}
-.principal_instruccion{
-    font-size: 1rem;
-    font-family: var(--fuente-cutive);
-    color: var(--color-texto-normal);
-}
-
-.principal_grupo_botones{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 32px;
+.box-output {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 400px;
+  border-radius: 4px;
+  background-color: var(--color-fondo);
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  transition: 3s;
+  box-shadow: 1px 0 5px 0 rgba(0, 0, 0, 0.6);
 }
 
-.principal_boton{
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    border: 2px solid var(--color-texto-resaltado);
-    width: 85%;
-    text-align: center;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 15px 15px;
-    text-decoration: none;
-    color: var(--color-secundario);
-    font-family: var(--fuente-cutive);
-
+.box-data {
+  display: flex;
+  justify-content: center;
 }
 
-._encriptar{
-    background-color: var(--color-fondo-secundario);
+.box_process_inputs_data {
+  display: flex;
+  font-size: 1rem;
+  font-family: var(--fuente-jura);
+  background: var(--color-fondo);
+  color: var(--color-texto-normal);
 }
 
-._desencriptar{
-    color: var(--color-texto-resaltado);
-    
+.box-msg-btns {
+  display: flex;
+  justify-content:space-between;
+  flex-direction: column;
 }
 
-._copiar{
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    border: 2px solid var(--color-texto-resaltado);
-    width: 25%;
-    text-align: center;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 15px 15px;
-    text-decoration: none;
-    color: var(--color-secundario);
-    background-color: var(--color-texto-resaltado);
+.box_button_group {
+  display: flex;
+  justify-content:space-between;
 }
 
-.principal_resultado{
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    justify-content: center;
-    gap: 16px;
+.btn {
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 15px 15px;
+  text-decoration: none;
+  color: var(--color-texto-normal);
+  font-family: var(--fuente-cutive);
 }
 
-.principal_imagen{
-    width: 60%;
-    display: flex;
-      
+.btn_encriptar {
+  border: 2px solid var(--color-texto-resaltado);
+  width: 85%;
+  text-align: center;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 15px 15px;
+  text-decoration: none;
+  color: var(--color-fondo);
+  font-family: var(--fuente-cutive);
+  background: var(--color-btn-principal);
 }
 
-.principal_mensajes_bold{
-    font-size: 1.5rem;
-    font-family: var(--fuente-jura);
-    
+.btn_desencriptar {
+  border: 2px solid var(--color-texto-resaltado);
+  width: 85%;
+  text-align: center;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 15px 15px;
+  text-decoration: none;
+  color: var(--color-secundario);
+  font-family: var(--fuente-cutive);
 }
 
-.principal_mensajes_normal{
-    font-size: 1rem;
-    font-family: var(--fuente-jura);
-    
+.footer {
+  font-family: var(--fuente-jura);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.footer_text {
+  text-decoration: none;
 }
 
 
 
-/*     Seccion Footer         */
-/******************************/
-.footer{
-    background-color: var(--color-fondo-footer);
-    padding: 20px 0px 20px 0px;
-    color: var(--color-texto-normal);
-    text-align: center;
-    font-family: var(--fuente-cutive);
-    font-size: 1rem;
-    font-weight: 400;
+
+
+.principal_resultado_texto {
+  display: flex;
+  font-size: 1rem;
+  font-family: var(--fuente-jura);
+  background: var(--color-fondo);
+  color: var(--color-texto-normal);
+}
+
+.social-icons{
+  position: fixed;
+  right: 30px;
+  top: 30%;
+}
+
+.social-icons ul li{
+  margin-top: 5px;
+  text-align: center;
+}
+
+.social-icons ul li a{
+  color: #000;
+  padding: 10px;
+  display: block;
+  font-size: 29px;
+}
+
+.social-icons ul li a:hover{
+  background-color: #220efb;
+  color: #fff;
 }
