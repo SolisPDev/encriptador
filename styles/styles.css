@@ -13,13 +13,13 @@
   --fuente-cutive: "Cutive Mono", monospace;
 
   /* Colores del sitio   */
-  --color-fondo: #ffffff;
-  --color-texto-normal: #a9a9a9;
-  --color-texto-resaltado: #000080;
-  --color-fondo-footer: #000080;
+  --color-fondo: #e7eafad5;
+  --color-texto-normal: #000000;
+  --color-texto-resaltado: #000000;
+  --color-fondo-footer: #ffffff;
   --color-texto-error: #9a0000;
-  --color-btn-principal: #808000;
-  --color-btn-secundario: #FFD700;
+  --color-btn-principal: #ffffff;
+  --color-btn-secundario: #ffffff;
 
 }
 
@@ -28,6 +28,11 @@
 * {
   padding: 0;
   margin: 0;
+  transition: all 0.6s ease-in-out;
+}
+
+body{
+    background: var(--color-fondo);
 }
 
 ul{
@@ -50,28 +55,45 @@ textarea {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin: 0.75% auto;
 }
 
-.box-inputs {
+.box-io {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  gap: 100px 10px;
   width: 400px;
   height: 400px;
   border-radius: 4px;
   background-color: var(--color-fondo);
-  text-align: center;
-  margin: 20px;
+  margin: 10px;
   padding: 20px;
   transition: 3s;
   box-shadow: 1px 0 5px 0 rgba(0, 0, 0, 0.6);
-  justify-content: space-between;
+}
+
+.box-data {
+  display: flex;
+  justify-content: center;
 }
 
 .box-msg{
+  display:flex;
   font-family: var(--fuente-jura);
+  flex-wrap: wrap;
+  padding: 10px 10px 10px 10px;
+}
+
+.box-msg p {
+  padding:5px;
+}
+
+.box_button_group {
+  display: flex;
+  justify-content:space-between;
 }
 
 .box-output {
@@ -91,10 +113,7 @@ textarea {
   box-shadow: 1px 0 5px 0 rgba(0, 0, 0, 0.6);
 }
 
-.box-data {
-  display: flex;
-  justify-content: center;
-}
+
 
 .box_process_inputs_data {
   display: flex;
@@ -104,16 +123,17 @@ textarea {
   color: var(--color-texto-normal);
 }
 
-.box-msg-btns {
-  display: flex;
-  justify-content:space-between;
+.box-msg-btns{
+  display:flex;
   flex-direction: column;
+
 }
 
-.box_button_group {
-  display: flex;
-  justify-content:space-between;
+.box-msg-error{
+  padding: 5px;
 }
+
+
 
 .btn {
   display: flex;
@@ -135,9 +155,13 @@ textarea {
   font-weight: 600;
   padding: 15px 15px;
   text-decoration: none;
-  color: var(--color-fondo);
+  color: var(--color-texto-normal);
   font-family: var(--fuente-cutive);
   background: var(--color-btn-principal);
+}
+
+.btn_encriptar:hover{
+    background: pink;
 }
 
 .btn_desencriptar {
@@ -149,14 +173,35 @@ textarea {
   font-weight: 600;
   padding: 15px 15px;
   text-decoration: none;
-  color: var(--color-secundario);
+  color: var(--color-texto-normal);
+  background: var(--color-btn-secundario);
   font-family: var(--fuente-cutive);
+}
+
+.box_output_msg_bold {
+    font-family: var(--fuente-jura);
+    font-size: 1.25rem;
+}
+
+.box_output_msg_normal{
+    font-family: var(--fuente-jura);
+    font-size: 1rem;
+}
+
+.box_output_resultado_texto{
+    display: flex;
+    font-size: 1rem;
+    font-family: var(--fuente-jura);
+    background: var(--color-fondo);
+    color: var(--color-texto-normal);
 }
 
 .footer {
   font-family: var(--fuente-jura);
   font-size: 0.85rem;
   text-align: center;
+  background: var(--color-fondo-footer);
+  padding: 5px 0 12px 0;
 }
 
 .footer_text {
@@ -171,7 +216,7 @@ textarea {
   display: flex;
   font-size: 1rem;
   font-family: var(--fuente-jura);
-  background: var(--color-fondo);
+  background: var(--color-fondo-footer);
   color: var(--color-texto-normal);
 }
 
